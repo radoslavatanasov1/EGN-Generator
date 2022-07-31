@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bulgarian Personal Number Generator </title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="js/libs/noUiSlider.8.5.1/nouislider.min.css">
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      * {
+        font-size: large;
+        font-family: roboto;
+      }
+
+      input#egn {
+        background: white;
+      }
+
+      table#egns {
+        margin: 1em 0em;
+        width: 100%;
+      }
+
+      form.pure-form {
+        display: inline-block;
+        margin-top: 1em;
+      }
+
+      tbody * {
+        font-family: 'roboto mono', monospace;
+      }
+
+      .tbody-scroll {
+        max-height: 62vh;
+        display: block;
+        overflow: auto;
+      }
+
+      #age {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #age-slider {
+        width: 100%;
+        margin: 4px 1px 19px 0;
+      }
+
+      #age-slider .noUi-connect {
+        background: #0078e7;
+      }
+
+      #btn:hover {
+        background: red;
+      }
+
+      @media only screen and (max-device-width: 768px),
+             only screen and (max-width: 768px) {
+        .pure-form {
+          margin: 4px 46px 4px 26px;
+        }
+
+        .pure-form > * {
+          width: 100%;
+          margin: 4px 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+  <script src="js/libs/underscore-min.js"></script>
+  <script src="js/libs/moment.min.js"></script>
+  <script src="js/libs/noUiSlider.8.5.1/nouislider.min.js"></script>
+  <script src="js/checker.js"></script>
+  <script src="js/cs.js"></script>
+  <center>
+  <form class="pure-form">
+    <input id="egn" type="text" pattern="[0-9?\[\-,\](|)*]*" placeholder="ЕГН" autofocus>
+    <select id="gender">
+      <option value="?">Gernder</option>
+      <option value="M">Male</option>
+      <option value="F">Female</option>
+    </select>
+    <select id="region">
+      <option value="?">Region</option>
+      <option value="Благоевград">Благоевград</option>
+      <option value="Бургас">Бургас</option>
+      <option value="Варна">Варна</option>
+      <option value="Велико Търново">Велико Търново</option>
+      <option value="Видин">Видин</option>
+      <option value="Враца">Враца</option>
+      <option value="Габрово">Габрово</option>
+      <option value="Добрич (Толбухин)">Добрич (Толбухин)</option>
+      <option value="Кърджали">Кърджали</option>
+      <option value="Кюстендил">Кюстендил</option>
+      <option value="Ловеч">Ловеч</option>
+      <option value="Монтана">Монтана</option>
+      <option value="Пазарджик">Пазарджик</option>
+      <option value="Перник">Перник</option>
+      <option value="Плевен">Плевен</option>
+      <option value="Пловдив">Пловдив</option>
+      <option value="Разград">Разград</option>
+      <option value="Русе">Русе</option>
+      <option value="Силистра">Силистра</option>
+      <option value="Сливен">Сливен</option>
+      <option value="Смолян">Смолян</option>
+      <option value="София - град">София - град</option>
+      <option value="София - окръг">София - окръг</option>
+      <option value="Стара Загора">Стара Загора</option>
+      <option value="Търговище">Търговище</option>
+      <option value="Хасково">Хасково</option>
+      <option value="Шумен">Шумен</option>
+      <option value="Ямбол">Ямбол</option>
+      <option value="Друг/Неизвестен">Друг/Неизвестен</option>
+    </select>
+    <button id="btn" class="pure-button pure-button-primary">Search</button>
+    <div id="age">
+      <label>Age</label>
+      <div id="age-slider"></div>
+    </div>  
+    <table id="egns" class="pure-table">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+  </form>
+  </center>
+  </body>
+</html>
